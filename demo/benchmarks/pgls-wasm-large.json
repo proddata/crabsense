@@ -1,0 +1,938 @@
+{
+  "generatedAt": "2026-10-14T19:21:03.893Z",
+  "runs": 10,
+  "large": true,
+  "node": "v24.12.0",
+  "platform": "darwin/arm64",
+  "pglsPackage": "0.26.0",
+  "wasmBytes": 12317047,
+  "wasmGzipBytes": 2699709,
+  "wasmSha256": "faa2d1bf7eb5b69c7bd8273d8dc03d3e3642e309b75e584a5db8fbec8a64a22a",
+  "wasmInitMs": 14.732000000000003,
+  "wasmSchemaMs": 2.952542000000001,
+  "methodology": "Node API calls. PGLS edits include full-document insertFile plus complete; CrabSense edits call complete. No browser or worker transfer. PGLS candidate checks omit replacement ranges because its Workspace API returns no edit ranges.",
+  "features": [
+    {
+      "name": "CTE AS",
+      "wanted": "AS",
+      "crabsense": true,
+      "pgls": true,
+      "pglsLabels": [
+        "AS"
+      ]
+    },
+    {
+      "name": "CTE body SELECT",
+      "wanted": "SELECT",
+      "crabsense": true,
+      "pgls": false,
+      "pglsLabels": []
+    },
+    {
+      "name": "FROM relation",
+      "wanted": "sailors",
+      "crabsense": true,
+      "pgls": true,
+      "pglsLabels": [
+        "sailors",
+        "harbor",
+        "pg_catalog",
+        "voyages",
+        "public"
+      ]
+    },
+    {
+      "name": "qualified column",
+      "wanted": "handle",
+      "crabsense": true,
+      "pgls": true,
+      "pglsLabels": [
+        "handle"
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "query": "chained CTE/10",
+      "chars": 1300,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 2.6232080000000053,
+        "warmMs": {
+          "p50": 1.11183299999999,
+          "p95": 1.7448329999999999
+        },
+        "editMs": {
+          "p50": 0.8137909999999806,
+          "p95": 1.190291000000002
+        }
+      },
+      "pgls": {
+        "suggestions": 0,
+        "problems": [
+          "missing handle"
+        ],
+        "firstInsertMs": 0.34754200000000424,
+        "firstCompleteMs": 23.709125,
+        "warmMs": {
+          "p50": 0.6171249999999873,
+          "p95": 0.9356670000000236
+        },
+        "editMs": {
+          "p50": 0.8267909999999574,
+          "p95": 1.9575820000000022
+        },
+        "editCompleteMs": {
+          "p50": 0.6517920000000004,
+          "p95": 1.7866660000000252
+        }
+      }
+    },
+    {
+      "query": "many joins/10",
+      "chars": 489,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 1.0309999999999775,
+        "warmMs": {
+          "p50": 0.5645419999999604,
+          "p95": 1.2219579999999723
+        },
+        "editMs": {
+          "p50": 0.3706250000000182,
+          "p95": 1.3898340000000076
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 0.3222080000000176,
+        "firstCompleteMs": 24.240250000000003,
+        "warmMs": {
+          "p50": 0.7630839999999921,
+          "p95": 1.2779170000000022
+        },
+        "editMs": {
+          "p50": 0.7157489999999598,
+          "p95": 2.367791000000011
+        },
+        "editCompleteMs": {
+          "p50": 0.6302079999999819,
+          "p95": 2.233665999999971
+        }
+      }
+    },
+    {
+      "query": "CTE lateral window union/10",
+      "chars": 1769,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 5.408208000000002,
+        "warmMs": {
+          "p50": 1.1105830000000196,
+          "p95": 2.2218750000000114
+        },
+        "editMs": {
+          "p50": 1.2284999999999968,
+          "p95": 2.776042000000018
+        }
+      },
+      "pgls": {
+        "suggestions": 0,
+        "problems": [
+          "missing handle"
+        ],
+        "firstInsertMs": 0.7239580000000103,
+        "firstCompleteMs": 22.586749999999995,
+        "warmMs": {
+          "p50": 0.6221249999999827,
+          "p95": 1.764959000000033
+        },
+        "editMs": {
+          "p50": 0.7628760000000057,
+          "p95": 2.5217499999999973
+        },
+        "editCompleteMs": {
+          "p50": 0.5686670000000049,
+          "p95": 2.3079999999999927
+        }
+      }
+    },
+    {
+      "query": "incomplete JOIN edit/10",
+      "chars": 1379,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 2.6246249999999804,
+        "warmMs": {
+          "p50": 0.7334579999999846,
+          "p95": 1.6186669999999879
+        },
+        "editMs": {
+          "p50": 0.6622500000000002,
+          "p95": 1.0484170000000006
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 0.3723749999999768,
+        "firstCompleteMs": 20.90216699999999,
+        "warmMs": {
+          "p50": 0.5142500000000041,
+          "p95": 1.211041999999992
+        },
+        "editMs": {
+          "p50": 0.6399589999999762,
+          "p95": 2.0635830000000226
+        },
+        "editCompleteMs": {
+          "p50": 0.4706249999999841,
+          "p95": 1.90462500000001
+        }
+      }
+    },
+    {
+      "query": "chained CTE/50",
+      "chars": 6740,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 8.724250000000012,
+        "warmMs": {
+          "p50": 2.667166000000009,
+          "p95": 3.238666999999964
+        },
+        "editMs": {
+          "p50": 2.314791000000014,
+          "p95": 2.4882499999999936
+        }
+      },
+      "pgls": {
+        "suggestions": 0,
+        "problems": [
+          "missing handle"
+        ],
+        "firstInsertMs": 1.5741250000000093,
+        "firstCompleteMs": 25.863,
+        "warmMs": {
+          "p50": 1.602125000000001,
+          "p95": 1.9233750000000214
+        },
+        "editMs": {
+          "p50": 1.9920420000000263,
+          "p95": 5.9607070000000135
+        },
+        "editCompleteMs": {
+          "p50": 1.4919160000000034,
+          "p95": 5.473791000000006
+        }
+      }
+    },
+    {
+      "query": "many joins/50",
+      "chars": 2330,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 1.8200840000000085,
+        "warmMs": {
+          "p50": 0.6420420000000036,
+          "p95": 0.75
+        },
+        "editMs": {
+          "p50": 0.6587499999999977,
+          "p95": 0.7830000000000155
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 0.747792000000004,
+        "firstCompleteMs": 25.697833000000003,
+        "warmMs": {
+          "p50": 1.0195420000000013,
+          "p95": 1.4026250000000005
+        },
+        "editMs": {
+          "p50": 1.4878340000000208,
+          "p95": 3.4239180000000147
+        },
+        "editCompleteMs": {
+          "p50": 1.1315829999999778,
+          "p95": 3.088084000000009
+        }
+      }
+    },
+    {
+      "query": "CTE lateral window union/50",
+      "chars": 7210,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 10.773875000000004,
+        "warmMs": {
+          "p50": 3.667582999999979,
+          "p95": 4.853624999999965
+        },
+        "editMs": {
+          "p50": 3.4758750000000305,
+          "p95": 3.7083750000000464
+        }
+      },
+      "pgls": {
+        "suggestions": 0,
+        "problems": [
+          "missing handle"
+        ],
+        "firstInsertMs": 1.4439999999999884,
+        "firstCompleteMs": 25.91983300000001,
+        "warmMs": {
+          "p50": 1.6489579999999933,
+          "p95": 2.036042000000009
+        },
+        "editMs": {
+          "p50": 2.1836660000000165,
+          "p95": 6.198541999999975
+        },
+        "editCompleteMs": {
+          "p50": 1.6663330000000087,
+          "p95": 5.6618330000000014
+        }
+      }
+    },
+    {
+      "query": "incomplete JOIN edit/50",
+      "chars": 6819,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 10.141458,
+        "warmMs": {
+          "p50": 2.789874999999995,
+          "p95": 4.15304100000003
+        },
+        "editMs": {
+          "p50": 2.2565839999999753,
+          "p95": 2.4983330000000024
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 1.8316660000000127,
+        "firstCompleteMs": 31.13775000000001,
+        "warmMs": {
+          "p50": 1.688250000000039,
+          "p95": 2.849125000000015
+        },
+        "editMs": {
+          "p50": 2.0320420000000468,
+          "p95": 6.194707000000051
+        },
+        "editCompleteMs": {
+          "p50": 1.5409999999999968,
+          "p95": 5.67191600000001
+        }
+      }
+    },
+    {
+      "query": "chained CTE/150",
+      "chars": 20440,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 19.983625000000018,
+        "warmMs": {
+          "p50": 6.6865419999999745,
+          "p95": 9.134000000000015
+        },
+        "editMs": {
+          "p50": 6.1974160000000325,
+          "p95": 8.339499999999987
+        }
+      },
+      "pgls": {
+        "suggestions": 0,
+        "problems": [
+          "missing handle"
+        ],
+        "firstInsertMs": 2.46875,
+        "firstCompleteMs": 42.164833999999985,
+        "warmMs": {
+          "p50": 4.4648749999999495,
+          "p95": 4.787583000000041
+        },
+        "editMs": {
+          "p50": 5.183625000000006,
+          "p95": 15.429791000000023
+        },
+        "editCompleteMs": {
+          "p50": 3.9646249999999554,
+          "p95": 13.959208000000046
+        }
+      }
+    },
+    {
+      "query": "many joins/150",
+      "chars": 7031,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 6.475583,
+        "warmMs": {
+          "p50": 1.625333000000012,
+          "p95": 2.4561250000000427
+        },
+        "editMs": {
+          "p50": 1.355666000000042,
+          "p95": 1.4366660000000024
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 1.6316250000000139,
+        "firstCompleteMs": 29.986124999999987,
+        "warmMs": {
+          "p50": 2.155499999999961,
+          "p95": 3.836250000000007
+        },
+        "editMs": {
+          "p50": 2.3985420000000204,
+          "p95": 7.478584000000012
+        },
+        "editCompleteMs": {
+          "p50": 1.7273339999999848,
+          "p95": 6.632875000000013
+        }
+      }
+    },
+    {
+      "query": "CTE lateral window union/150",
+      "chars": 20911,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 24.187375000000003,
+        "warmMs": {
+          "p50": 9.538584000000014,
+          "p95": 12.01158300000003
+        },
+        "editMs": {
+          "p50": 8.887042000000065,
+          "p95": 9.831749999999943
+        }
+      },
+      "pgls": {
+        "suggestions": 0,
+        "problems": [
+          "missing handle"
+        ],
+        "firstInsertMs": 2.351832999999999,
+        "firstCompleteMs": 37.611542000000014,
+        "warmMs": {
+          "p50": 4.230791000000011,
+          "p95": 4.6396669999999745
+        },
+        "editMs": {
+          "p50": 5.3210410000000365,
+          "p95": 15.420249000000013
+        },
+        "editCompleteMs": {
+          "p50": 4.073833000000036,
+          "p95": 13.998790999999983
+        }
+      }
+    },
+    {
+      "query": "incomplete JOIN edit/150",
+      "chars": 20519,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 17.698791999999997,
+        "warmMs": {
+          "p50": 6.294499999999971,
+          "p95": 8.872250000000008
+        },
+        "editMs": {
+          "p50": 6.038166999999987,
+          "p95": 7.080209000000025
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 2.4975419999999815,
+        "firstCompleteMs": 37.409166,
+        "warmMs": {
+          "p50": 4.133417000000009,
+          "p95": 4.317709000000036
+        },
+        "editMs": {
+          "p50": 5.100957999999991,
+          "p95": 14.980958999999984
+        },
+        "editCompleteMs": {
+          "p50": 3.919208000000026,
+          "p95": 13.66270899999995
+        }
+      }
+    },
+    {
+      "query": "nested alias shadow/10",
+      "chars": 538,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 1.759334000000024,
+        "warmMs": {
+          "p50": 0.4802919999999915,
+          "p95": 0.6825000000000045
+        },
+        "editMs": {
+          "p50": 0.4216250000000059,
+          "p95": 0.4679580000000101
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 0.23049999999997794,
+        "firstCompleteMs": 22.469083000000012,
+        "warmMs": {
+          "p50": 0.6934579999999926,
+          "p95": 0.9514169999999922
+        },
+        "editMs": {
+          "p50": 0.7496249999999236,
+          "p95": 2.447249999999997
+        },
+        "editCompleteMs": {
+          "p50": 0.6352909999999952,
+          "p95": 2.275999999999982
+        }
+      }
+    },
+    {
+      "query": "deep correlated outer alias/10",
+      "chars": 611,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 1.5788340000000005,
+        "warmMs": {
+          "p50": 0.7164580000000171,
+          "p95": 2.4172499999999957
+        },
+        "editMs": {
+          "p50": 0.4663749999999709,
+          "p95": 0.9406249999999545
+        }
+      },
+      "pgls": {
+        "suggestions": 0,
+        "problems": [
+          "missing handle"
+        ],
+        "firstInsertMs": 0.43420800000001236,
+        "firstCompleteMs": 24.20474999999999,
+        "warmMs": {
+          "p50": 0.7504169999999988,
+          "p95": 1.5556660000000022
+        },
+        "editMs": {
+          "p50": 0.7035410000000297,
+          "p95": 1.8132090000000858
+        },
+        "editCompleteMs": {
+          "p50": 0.6009169999999813,
+          "p95": 1.3702090000000453
+        }
+      }
+    },
+    {
+      "query": "unfinished nested edit/10",
+      "chars": 491,
+      "crash": true,
+      "exitCode": 1,
+      "signal": null,
+      "error": "thread '<unnamed>' panicked at crates/pgls_treesitter/src/context/ancestors.rs:33:32: No top-level grammar-rule found. Please create an issue with the entire Postgres file, noting cursor/hover position. note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace"
+    },
+    {
+      "query": "outer scope after subqueries/10",
+      "chars": 626,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 0.5877089999999896,
+        "warmMs": {
+          "p50": 0.25004200000000765,
+          "p95": 0.7470000000000141
+        },
+        "editMs": {
+          "p50": 0.212333000000001,
+          "p95": 0.6754170000000386
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 0.2423339999999996,
+        "firstCompleteMs": 22.316666999999995,
+        "warmMs": {
+          "p50": 0.992083000000008,
+          "p95": 2.2866669999999942
+        },
+        "editMs": {
+          "p50": 1.3387500000000045,
+          "p95": 2.2280410000000757
+        },
+        "editCompleteMs": {
+          "p50": 1.1646670000000086,
+          "p95": 1.8102500000000532
+        }
+      }
+    },
+    {
+      "query": "nested alias shadow/40",
+      "chars": 2008,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 9.388125000000002,
+        "warmMs": {
+          "p50": 3.059167000000002,
+          "p95": 5.376666999999998
+        },
+        "editMs": {
+          "p50": 2.8310829999999783,
+          "p95": 3.2911250000000223
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 0.3630839999999864,
+        "firstCompleteMs": 26.48279099999999,
+        "warmMs": {
+          "p50": 2.873917000000006,
+          "p95": 3.9072499999999764
+        },
+        "editMs": {
+          "p50": 2.7521259999999756,
+          "p95": 4.175416999999982
+        },
+        "editCompleteMs": {
+          "p50": 2.5548749999999814,
+          "p95": 3.9508749999999964
+        }
+      }
+    },
+    {
+      "query": "deep correlated outer alias/40",
+      "chars": 2201,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 10.328541000000001,
+        "warmMs": {
+          "p50": 2.9996659999999906,
+          "p95": 3.6506669999999986
+        },
+        "editMs": {
+          "p50": 2.9141670000000204,
+          "p95": 2.972499999999968
+        }
+      },
+      "pgls": {
+        "suggestions": 0,
+        "problems": [
+          "missing handle"
+        ],
+        "firstInsertMs": 0.3632080000000144,
+        "firstCompleteMs": 29.801457999999997,
+        "warmMs": {
+          "p50": 2.4387080000000196,
+          "p95": 2.663208999999995
+        },
+        "editMs": {
+          "p50": 2.4892079999999623,
+          "p95": 3.5828330000000506
+        },
+        "editCompleteMs": {
+          "p50": 2.305749999999989,
+          "p95": 3.3870830000000183
+        }
+      }
+    },
+    {
+      "query": "unfinished nested edit/40",
+      "chars": 1841,
+      "crash": true,
+      "exitCode": 1,
+      "signal": null,
+      "error": "thread '<unnamed>' panicked at crates/pgls_treesitter/src/context/ancestors.rs:33:32: No top-level grammar-rule found. Please create an issue with the entire Postgres file, noting cursor/hover position. note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace"
+    },
+    {
+      "query": "outer scope after subqueries/40",
+      "chars": 2216,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 1.2707499999999925,
+        "warmMs": {
+          "p50": 0.40358399999996664,
+          "p95": 0.6785419999999931
+        },
+        "editMs": {
+          "p50": 0.3315420000000131,
+          "p95": 0.6482090000000085
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 0.7657910000000072,
+        "firstCompleteMs": 27.572541,
+        "warmMs": {
+          "p50": 3.237875000000031,
+          "p95": 4.50800000000001
+        },
+        "editMs": {
+          "p50": 2.252999999999986,
+          "p95": 3.834625000000017
+        },
+        "editCompleteMs": {
+          "p50": 2.0666249999999877,
+          "p95": 3.5838750000000346
+        }
+      }
+    },
+    {
+      "query": "nested alias shadow/128",
+      "chars": 6320,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 32.88541699999999,
+        "warmMs": {
+          "p50": 23.213499999999954,
+          "p95": 25.39804199999992
+        },
+        "editMs": {
+          "p50": 23.636583999999857,
+          "p95": 25.567749999999933
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 1.2040829999999971,
+        "firstCompleteMs": 53.17275000000001,
+        "warmMs": {
+          "p50": 19.123417000000018,
+          "p95": 21.570040999999947
+        },
+        "editMs": {
+          "p50": 19.67087400000014,
+          "p95": 22.846457999999984
+        },
+        "editCompleteMs": {
+          "p50": 19.186083000000053,
+          "p95": 22.25233400000002
+        }
+      }
+    },
+    {
+      "query": "deep correlated outer alias/128",
+      "chars": 6893,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 37.155292,
+        "warmMs": {
+          "p50": 23.983375000000024,
+          "p95": 32.43829199999999
+        },
+        "editMs": {
+          "p50": 24.04804200000001,
+          "p95": 25.890333000000055
+        }
+      },
+      "pgls": {
+        "suggestions": 0,
+        "problems": [
+          "missing handle"
+        ],
+        "firstInsertMs": 1.038000000000011,
+        "firstCompleteMs": 43.00758300000001,
+        "warmMs": {
+          "p50": 17.17700000000002,
+          "p95": 18.089999999999918
+        },
+        "editMs": {
+          "p50": 17.62570800000003,
+          "p95": 20.417582999999922
+        },
+        "editCompleteMs": {
+          "p50": 17.11870799999997,
+          "p95": 19.876499999999965
+        }
+      }
+    },
+    {
+      "query": "unfinished nested edit/128",
+      "chars": 5801,
+      "crash": true,
+      "exitCode": 1,
+      "signal": null,
+      "error": "thread '<unnamed>' panicked at crates/pgls_treesitter/src/context/ancestors.rs:33:32: No top-level grammar-rule found. Please create an issue with the entire Postgres file, noting cursor/hover position. note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace"
+    },
+    {
+      "query": "outer scope after subqueries/128",
+      "chars": 6908,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 3.085624999999993,
+        "warmMs": {
+          "p50": 0.9381670000000213,
+          "p95": 1.0558340000000044
+        },
+        "editMs": {
+          "p50": 0.8896670000000313,
+          "p95": 0.9720419999999876
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 1.2469999999999857,
+        "firstCompleteMs": 49.94924999999998,
+        "warmMs": {
+          "p50": 13.792124999999999,
+          "p95": 14.284375000000011
+        },
+        "editMs": {
+          "p50": 14.619041999999922,
+          "p95": 17.42304200000001
+        },
+        "editCompleteMs": {
+          "p50": 14.10437499999989,
+          "p95": 16.90816699999999
+        }
+      }
+    },
+    {
+      "query": "wide projection/100",
+      "chars": 6469,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 3.248833999999988,
+        "warmMs": {
+          "p50": 1.0487909999999943,
+          "p95": 2.485582999999991
+        },
+        "editMs": {
+          "p50": 0.7676250000000095,
+          "p95": 0.9777919999999654
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 0.8168330000000026,
+        "firstCompleteMs": 24.023042000000004,
+        "warmMs": {
+          "p50": 1.0138330000000337,
+          "p95": 1.3739579999999876
+        },
+        "editMs": {
+          "p50": 1.2627499999999827,
+          "p95": 4.21654099999995
+        },
+        "editCompleteMs": {
+          "p50": 0.9182500000000005,
+          "p95": 3.812082999999973
+        }
+      }
+    },
+    {
+      "query": "wide projection/1000",
+      "chars": 64969,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 18.096082999999993,
+        "warmMs": {
+          "p50": 6.500708999999972,
+          "p95": 9.981042000000002
+        },
+        "editMs": {
+          "p50": 6.765916999999945,
+          "p95": 7.90462500000001
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 4.5276250000000005,
+        "firstCompleteMs": 61.677666999999985,
+        "warmMs": {
+          "p50": 7.5308749999999804,
+          "p95": 7.793125000000032
+        },
+        "editMs": {
+          "p50": 10.161001000000056,
+          "p95": 29.59212500000001
+        },
+        "editCompleteMs": {
+          "p50": 7.840624999999932,
+          "p95": 27.075041
+        }
+      }
+    },
+    {
+      "query": "wide projection/5000",
+      "chars": 328969,
+      "crabsense": {
+        "suggestions": 1,
+        "problems": [],
+        "firstMs": 65.067375,
+        "warmMs": {
+          "p50": 37.65062499999999,
+          "p95": 43.52545799999996
+        },
+        "editMs": {
+          "p50": 35.76716600000009,
+          "p95": 45.18154100000015
+        }
+      },
+      "pgls": {
+        "suggestions": 1,
+        "problems": [],
+        "firstInsertMs": 15.583250000000021,
+        "firstCompleteMs": 161.823083,
+        "warmMs": {
+          "p50": 39.684708,
+          "p95": 41.04708299999993
+        },
+        "editMs": {
+          "p50": 49.44612499999994,
+          "p95": 141.63562499999966
+        },
+        "editCompleteMs": {
+          "p50": 38.79883399999994,
+          "p95": 130.70449999999983
+        }
+      }
+    }
+  ]
+}

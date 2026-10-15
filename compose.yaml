@@ -1,0 +1,32 @@
+name: crabsense
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: crabsense
+      POSTGRES_USER: crabsense
+      POSTGRES_PASSWORD: crabsense_dev_only
+    volumes:
+      - pgdata_v3:/var/lib/postgresql/data
+      - ./demo/db/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U crabsense -d crabsense"]
+      interval: 3s
+      timeout: 3s
+      retries: 15
+  app:
+    build:
+      context: .
+      dockerfile: demo/Dockerfile
+    environment:
+      DATABASE_URL: postgres://crabsense:crabsense_dev_only@db:5432/crabsense
+      PORT: 3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata_v3:

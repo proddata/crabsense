@@ -1,0 +1,30 @@
+{
+  "name": "crabsense",
+  "version": "0.1.0",
+  "description": "Catalog-aware PostgreSQL completion engine for SQL editors",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/",
+    "docs/*.md"
+  ],
+  "sideEffects": false,
+  "keywords": ["postgresql", "autocomplete", "completion", "monaco", "sql"],
+  "scripts": {
+    "build": "node scripts/build-package.mjs",
+    "prepack": "npm run build",
+    "test": "node --test tests/*.test.js",
+    "benchmark:package": "node scripts/bench-package.mjs",
+    "demo:build": "npm run build && npm --prefix demo run build",
+    "demo:test": "npm --prefix demo test",
+    "test:all": "npm test && npm run demo:test"
+  }
+}
