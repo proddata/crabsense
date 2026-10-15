@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createCrabSense } from 'crabsense';
+import { createCrabSense } from '@proddata/crabsense';
 import { examples } from '../src/examples.js';
 import { validateSql } from '../src/methods/validate.js';
 

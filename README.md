@@ -25,19 +25,23 @@ Open [http://localhost:3000](http://localhost:3000) and choose an example. The e
 
 ## Use the package
 
-The repository root is the package; `demo/` is a separate private application. The package is not published to npm by this project. Build a checkout before installing it in another app:
+The repository root is the package; `demo/` is a separate private application. Install the public npm package when it is available, or build a checkout before installing it locally:
 
 ```sh
 # In the CrabSense checkout
 npm run build
 # In your application
+npm install @proddata/crabsense
+# Or install a local checkout:
 npm install /path/to/crabsense
 ```
+
+Maintainers: see the [release guide](docs/releasing.md) for the first npm publish and later tag releases.
 
 Pass a permission-filtered catalog snapshot. This example needs no database connection at completion time:
 
 ```js
-import { createCrabSense, completionEdit } from 'crabsense';
+import { createCrabSense, completionEdit } from '@proddata/crabsense';
 
 const catalog = {
   schemas: ['public'],
@@ -99,7 +103,7 @@ For large queries, keep the synchronous CrabSense engine in a dedicated browser 
 Create `completion.worker.js` next to your editor module:
 
 ```js
-import { createCrabSense, completionEdit } from 'crabsense';
+import { createCrabSense, completionEdit } from '@proddata/crabsense';
 
 let engine;
 let generation = 0;

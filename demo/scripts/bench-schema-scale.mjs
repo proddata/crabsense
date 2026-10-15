@@ -1,7 +1,7 @@
 import { createCodeMirror } from '../src/methods/codemirror.js';
 import { performance } from 'node:perf_hooks';
 import assert from 'node:assert/strict';
-import { createCrabSense } from 'crabsense';
+import { createCrabSense } from '@proddata/crabsense';
 
 const sizes = process.argv.includes('--large') ? [100, 1000, 10000, 50000] : [100, 1000, 10000];
 const runs = 30;

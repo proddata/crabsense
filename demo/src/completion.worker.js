@@ -1,4 +1,4 @@
-import { createCrabSense } from 'crabsense';
+import { createCrabSense } from '@proddata/crabsense';
 import { createCodeMirror } from './methods/codemirror.js';
 
 let generation = 0;

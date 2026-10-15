@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { parse } from 'libpg-query';
-import { createCrabSense } from 'crabsense';
+import { createCrabSense } from '@proddata/crabsense';
 
 const engine = createCrabSense({
   schemas: ['public'], relations: [{ schema: 'public', name: 'sailors', kind: 'table' }],

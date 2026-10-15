@@ -1,5 +1,5 @@
 import { createCodeMirror } from '../src/methods/codemirror.js';
-import { createCrabSense } from 'crabsense';
+import { createCrabSense } from '@proddata/crabsense';
 
 // An intentionally small catalog makes both required and forbidden suggestions
 // meaningful. Each case describes expected editor behavior, not another method's output.

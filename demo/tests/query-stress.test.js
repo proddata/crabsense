@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { parse } from 'libpg-query';
-import { createCrabSense } from 'crabsense';
+import { createCrabSense } from '@proddata/crabsense';
 import { queryStressFixtures, stressMetadata, checkStressResult } from '../fixtures/query-stress.js';
 
 const engine = createCrabSense(stressMetadata);

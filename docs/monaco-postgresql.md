@@ -3,7 +3,7 @@
 This recipe uses Vite and the ESM package entry point. Install `monaco-editor` in your app and install CrabSense from this checkout:
 
 ```sh
-npm install monaco-editor /path/to/crabsense
+npm install monaco-editor @proddata/crabsense
 ```
 
 Add an element such as `<div id="editor" style="height: 32rem"></div>` to the page. Your app must also expose a metadata endpoint that returns the [CrabSense snapshot shape](../README.md#use-the-package). This repo's `GET /api/schema` is an example. Keep database credentials and catalog queries on the server; the browser should receive only objects the current user may see.
@@ -20,7 +20,7 @@ import 'monaco-editor/esm/vs/editor/contrib/suggest/browser/suggestController.js
 import { conf as sqlConfiguration, language as sqlLanguage }
   from 'monaco-editor/esm/vs/basic-languages/sql/sql.js';
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
-import { createCrabSense, completionEdit } from 'crabsense';
+import { createCrabSense, completionEdit } from '@proddata/crabsense';
 
 self.MonacoEnvironment = { getWorker: () => new EditorWorker() };
 

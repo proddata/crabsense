@@ -1,7 +1,7 @@
 import { performance } from 'node:perf_hooks';
 import { writeFile } from 'node:fs/promises';
 import { parse } from 'libpg-query';
-import { createCrabSense } from 'crabsense';
+import { createCrabSense } from '@proddata/crabsense';
 import { createCodeMirror } from '../src/methods/codemirror.js';
 import { queryStressFixtures, stressMetadata, checkStressResult } from '../fixtures/query-stress.js';
 

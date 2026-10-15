@@ -3,7 +3,7 @@ import 'monaco-editor/esm/vs/editor/contrib/suggest/browser/suggestController.js
 import { conf as sqlConfiguration, language as sqlLanguage } from 'monaco-editor/esm/vs/basic-languages/sql/sql.js';
 import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker';
 import CompletionWorker from './completion.worker.js?worker';
-import { createCrabSense } from 'crabsense';
+import { createCrabSense } from '@proddata/crabsense';
 import { monacoCompletionEdit } from './monaco-completion.js';
 import { createCompletionWorkerClient } from './completion-worker-client.js';
 import { postgresKeywordData } from './postgres-keywords.js';

@@ -13,7 +13,7 @@
     "benchmark:query-stress": "node scripts/bench-query-stress.mjs"
   },
   "dependencies": {
-    "crabsense": "file:.."
+    "@proddata/crabsense": "file:.."
   },
   "devDependencies": {
     "@codemirror/autocomplete": "^6.20.3",

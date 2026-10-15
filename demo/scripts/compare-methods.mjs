@@ -1,7 +1,7 @@
 import { createCodeMirror } from '../src/methods/codemirror.js';
 import { readFile } from 'node:fs/promises';
 import { performance } from 'node:perf_hooks';
-import { createCrabSense } from 'crabsense';
+import { createCrabSense } from '@proddata/crabsense';
 
 const fallbackSchema = {
   schemas: ['public', 'harbor'],

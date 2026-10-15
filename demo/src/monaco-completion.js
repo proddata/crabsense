@@ -1,4 +1,4 @@
-import { completionEdit } from 'crabsense';
+import { completionEdit } from '@proddata/crabsense';
 
 /** Preserve the engine's order through Monaco's fuzzy scoring stage. */
 export function monacoCompletionEdit(sql, offset, replacementStart, suggestion, index) {

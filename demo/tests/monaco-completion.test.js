@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { fuzzyScore } from 'monaco-editor/esm/vs/base/common/filters.js';
-import { createCrabSense } from 'crabsense';
+import { createCrabSense } from '@proddata/crabsense';
 import { monacoCompletionEdit } from '../src/monaco-completion.js';
 
 const metadata = {
