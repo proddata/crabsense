@@ -1,8 +1,10 @@
 # CrabSense 🦀
 
+[![npm version](https://img.shields.io/npm/v/%40proddata%2Fcrabsense)](https://www.npmjs.com/package/@proddata/crabsense)
+
 CrabSense adds PostgreSQL-aware completion to a SQL editor. Give it a snapshot of the database objects a user can access, then pass in SQL and a cursor position. It suggests relations, columns, types, functions, and useful SQL keywords. The engine is a dependency-free ESM package; the separate crab-themed Monaco playground lets you try it against a local PostgreSQL database.
 
-CrabSense is a **0.1.0 prototype**. It uses a fast, recoverable SQL context resolver rather than a complete PostgreSQL grammar. See [limits](#limits) before using it for advanced SQL.
+CrabSense is an early prototype. It uses a fast, recoverable SQL context resolver rather than a complete PostgreSQL grammar. See [limits](#limits) before using it for advanced SQL.
 
 ## Try the playground
 
@@ -25,18 +27,22 @@ Open [http://localhost:3000](http://localhost:3000) and choose an example. The e
 
 ## Use the package
 
-The repository root is the package; `demo/` is a separate private application. Install the public npm package when it is available, or build a checkout before installing it locally:
+Install [the published package](https://www.npmjs.com/package/@proddata/crabsense) in your application:
+
+```sh
+npm install @proddata/crabsense
+```
+
+The repository root is the package; `demo/` is a separate private application. To install a local checkout instead, build it first:
 
 ```sh
 # In the CrabSense checkout
 npm run build
 # In your application
-npm install @proddata/crabsense
-# Or install a local checkout:
 npm install /path/to/crabsense
 ```
 
-Maintainers: see the [release guide](docs/releasing.md) for the first npm publish and later tag releases.
+Maintainers: see the [release guide](docs/releasing.md) for tag releases.
 
 Pass a permission-filtered catalog snapshot. This example needs no database connection at completion time:
 
