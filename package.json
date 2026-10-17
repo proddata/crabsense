@@ -1,6 +1,6 @@
 {
   "name": "@proddata/crabsense",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Catalog-aware PostgreSQL completion engine for SQL editors",
   "license": "Apache-2.0",
   "type": "module",

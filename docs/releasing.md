@@ -24,9 +24,10 @@ On npmjs.com, open the package's **Trusted Publisher** settings and add GitHub A
 
 ## Later releases
 
-From a clean `main` branch, bump the version without creating a tag yet, update the demo's local package lock, run the checks, and push the version commit. After the commit reaches GitHub, push its matching tag:
+From a clean `main` branch, create a release branch, bump the version without creating a tag yet, update the demo's local package lock, and run the checks. Merge the release through a pull request so the required `test` check runs. Tag the merged commit on `main`:
 
 ```sh
+git switch -c release/next
 npm version patch --no-git-tag-version
 npm --prefix demo install --package-lock-only --ignore-scripts
 npm ci
@@ -38,9 +39,12 @@ npm run demo:test
 npm run demo:build
 git add package.json package-lock.json demo/package-lock.json
 git commit -m "Release $(node -p 'require("./package.json").version')"
-git push origin main
+git push -u origin HEAD
+# Open a pull request and merge it after CI passes.
+git switch main
+git pull --ff-only
 git tag "v$(node -p 'require("./package.json").version')"
-git push origin --tags
+git push origin "v$(node -p 'require("./package.json").version')"
 ```
 
-Use the same steps with `minor` or `major` instead of `patch` when appropriate. The publish workflow rejects a tag that differs from the package version, and npm rejects a version that has already been published.
+Use the same steps with `minor` or `major` instead of `patch` when appropriate. The publish workflow rejects a tag that differs from the package version or points outside `main`, and npm rejects a version that has already been published.
